@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Health Inspection",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "20",
+        "eusers": 32,
+        "img": "fas fa-search-plus"
+    },
+    {
+        "name": "Health Guidelines",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "0",
+        "eusers": 32,
+        "img": "fas fa-dharmachakra"
+    },
+    {
+        "name": "Scheduled Checkup",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "30",
+        "eusers": 35,
+        "img": "fas fa-tasks"
+    },
+    {
+        "name": "Emargency OTI",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "34",
+        "eusers": 61,
+        "img": "fas fa-star"
+    },
+    {
+        "name": "Dental Care",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "21",
+        "eusers": 61,
+        "img": "fas fa-teeth"
+    },
+    {
+        "name": "Eye Care",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "20",
+        "eusers": 61,
+        "img": "fas fa-eye"
+    },
+    {
+        "name": "Monthly Membership",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "21",
+        "eusers": 61,
+        "img": "fas fa-tachometer-alt"
+    },
+    {
+        "name": "Health Insurance",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "20",
+        "eusers": 61,
+        "img": "fas fa-recycle"
+    },
+    {
+        "name": "Online Doctor",
+        "short_details": "is a very important for your healthy and safe life.",
+        "details": "is a very important for your healthy and safe life.  Our high quality service will insure your good health and life.",
+        "fee": "21",
+        "eusers": 61,
+        "img": "fas fa-headset"
+    }
+]
