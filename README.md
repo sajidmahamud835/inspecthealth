@@ -1,4 +1,4 @@
-# InspectHealth
+# InspectHealth - A Health Care Related Website
 
 InspectHealth is a health care landing page templete created with reated using React JS, Bootstrap 5, Firebase Authentication, React Router, JSON.
 
