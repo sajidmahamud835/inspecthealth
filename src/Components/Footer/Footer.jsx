@@ -8,8 +8,8 @@ const Footer = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-md-3">
-							<div> <a className="navbar-brand" href="/"><i class="fas fa-search-plus"></i> InspectHealth</a></div>
-							<p class="text-footer">A trusted health-care agency where we are providing the medical and health services properly.</p>
+							<div> <a className="navbar-brand" href="/"><i className="fas fa-search-plus"></i> InspectHealth</a></div>
+							<p className="text-footer">A trusted health-care agency where we are providing the medical and health services properly.</p>
 						</div>
 						<div className="col-md-3">
 							<ul>
@@ -41,7 +41,7 @@ const Footer = () => {
 								<li>MRI For everyone</li>
 							</ul>
 						</div>
-						<div className="text-center pt-5"><p>Copyright © 2021 <i class="fas fa-search-plus"></i> InspectHealth</p></div>
+						<div className="text-center pt-5"><p>Copyright © 2021 <i className="fas fa-search-plus"></i> InspectHealth</p></div>
 					</div>
 				</div>
 			</footer>

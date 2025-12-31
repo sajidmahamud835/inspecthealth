@@ -11,7 +11,7 @@ const Header = () => {
                 <div className="row">
                     <nav className="navbar navbar-expand-lg navbar-light">
                         <div className="container-fluid">
-                            <a className="navbar-brand text-primary" href="/"><i class="fas fa-search-plus"></i> InspectHealth</a>
+                            <a className="navbar-brand text-primary" href="/"><i className="fas fa-search-plus"></i> InspectHealth</a>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>

@@ -8,7 +8,7 @@ const Services = () => {
 
     useEffect(() => {
         console.log('product api called');
-        fetch('./FakeDataService.JSON')
+        fetch('/FakeDataService.JSON')
             .then(res => res.json())
             .then(data => {
                 setPost(data);
@@ -29,8 +29,8 @@ const Services = () => {
                 <div className="row our-offer-items less-carousel">
 
                     {
-                        service.map(service => <SingleService
-                            key={service.key}
+                        service.map((service, index) => <SingleService
+                            key={index}
                             service={service}
                         >
                         </SingleService>)

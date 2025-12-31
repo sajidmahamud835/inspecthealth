@@ -4,20 +4,20 @@
         "details": "How can you chhose the proper medicine for you? Its a little bit hard to the genaral people whom do not have medical knowledge enough",
         "date": "01 June, 21",
         "visitor": 32,
-        "img": "./img/Rectangle1.png"
+        "img": "/img/Rectangle1.png"
     },
     {
         "name": "How Vaccine Works",
         "details": "How can you chhose the proper medicine for you? Its a little bit hard to the genaral people whom do not have medical knowledge enough",
         "date": "08 November, 21",
         "visitor": 35,
-        "img": "./img/Rectangle2.png"
+        "img": "/img/Rectangle2.png"
     },
     {
         "name": "About Covid19",
         "details": "How can you chhose the proper medicine for you? Its a little bit hard to the genaral people whom do not have medical knowledge enough",
         "date": "20 April, 21",
         "visitor": 61,
-        "img": "./img/Rectangle3.png"
+        "img": "/img/Rectangle3.png"
     }
 ]

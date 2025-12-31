@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from './../../Hooks/useAuth';
 import './Login.css';
 
@@ -11,7 +11,7 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
   const redirectURL = '/home';
@@ -22,11 +22,12 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     handleUserLogin(email, password)
     .then((result) => {
       setUser(result.user);
-      history.push(redirectURL);
+      navigate(redirectURL);
     })
     .catch((error) => {
       setError(error.message);
@@ -36,7 +37,7 @@ const Login = () => {
     handleGoogleLogin()
     .then((result) => {
       setUser(result.user);
-      history.push(redirectURL);
+      navigate(redirectURL);
     })
     .catch((error) => setError(error.message))
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router';
+import { Navigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import thum from '../../images/Rectangle2.png';
 
@@ -19,25 +19,20 @@ const Contact = () => {
                     </div>
                     <div className="container mb-5">
                         <h2>Submit Your Quary</h2>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Problem Name</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Service Name" />
+                        <div className="mb-3">
+                            <label htmlFor="exampleFormControlInput1" className="form-label">Problem Name</label>
+                            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Service Name" />
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Details</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <div className="mb-3">
+                            <label htmlFor="exampleFormControlTextarea1" className="form-label">Details</label>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <button type="button" className="btn btn-primary">Submit Query</button>
                     </div>
                 </div>
             ) : (
                 <>
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                        }}
-                    />
-
+                    <Navigate to="/login" replace />
                 </>
             )}
         </div>

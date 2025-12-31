@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const allContext = useFirebase();
-  const { isLoading } = useFirebase();
+  const { isLoading } = allContext;
   if (isLoading) {
     return <div className="spinner">
             

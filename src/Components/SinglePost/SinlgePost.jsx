@@ -1,7 +1,7 @@
 import './SinglePost.css';
 import thum from '../../images/Rectangle2.png';
 import useAuth from '../../Hooks/useAuth';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const SinglePost = () => {
 	const { user } = useAuth();
@@ -21,12 +21,7 @@ const SinglePost = () => {
 				</div>
 			) : (
 				<>
-					<Redirect
-						to={{
-							pathname: "/login",
-						}}
-					/>
-
+					<Navigate to="/login" replace />
 				</>
 			)}
 		</div>
