@@ -103,9 +103,9 @@ The application is built as a client-side rendered (CSR) React application:
 
 Explore other components of the research portfolio:
 
-1.  **[EasyCom](../easycom)** - A more advanced implementation of protected routes and user management in a commercial context.
-2.  **[BankSync](../banksync)** - Shares the "Security First" approach, handling financial data much like health data.
-3.  **[WhatsApp Bot](../whatsapp-bot)** - Potential integration for sending appointment reminders to patients.
+1.  **[EasyCom](https://github.com/sajidmahamud835/easycom)** - A more advanced implementation of protected routes and user management in a commercial context.
+2.  **[BankSync](https://github.com/sajidmahamud835/banksync)** - Shares the "Security First" approach, handling financial data much like health data.
+3.  **[WhatsApp Bot](https://github.com/sajidmahamud835/whatsapp-bot)** - Potential integration for sending appointment reminders to patients.
 
 ---
 
