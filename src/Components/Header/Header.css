@@ -1,7 +1,8 @@
-/* Header Styles - Modern Glassmorphism */
+/* Header Styles - Milvik Blue Theme */
 .navbar {
     padding: 1rem 0;
     transition: all var(--transition);
+    background: transparent;
 }
 
 .navbar-sticky {
@@ -10,7 +11,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: var(--shadow);
@@ -30,10 +31,7 @@
 
 .navbar-brand i {
     font-size: 1.25rem;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary);
 }
 
 .navbar-brand:hover {
@@ -45,30 +43,14 @@
     color: var(--gray-700) !important;
     padding: 0.5rem 1rem !important;
     margin: 0 0.25rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-lg);
     transition: all var(--transition);
     position: relative;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--primary-gradient);
-    transition: width var(--transition);
-}
-
 .nav-link:hover {
     color: var(--primary) !important;
-    background: rgba(16, 185, 129, 0.1);
-}
-
-.nav-link:hover::after {
-    width: 60%;
+    background: rgba(8, 98, 200, 0.08);
 }
 
 /* Custom Button in Header */
@@ -77,16 +59,15 @@
     color: white !important;
     font-weight: 600;
     padding: 0.5rem 1.25rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-lg);
     border: none;
-    box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.35);
+    box-shadow: var(--shadow-blue);
     transition: all var(--transition);
 }
 
 .btn-custom:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.5);
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 8px 25px rgba(8, 98, 200, 0.4);
 }
 
 /* Submit Query Button */
@@ -94,19 +75,17 @@
     background: var(--primary-gradient) !important;
     color: white !important;
     padding: 0.5rem 1.25rem !important;
-    box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.35);
+    box-shadow: var(--shadow-blue);
+    border-radius: var(--radius-lg);
 }
 
 .nav-link.btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.5);
+    box-shadow: 0 8px 25px rgba(8, 98, 200, 0.4);
+    background: linear-gradient(135deg, #0550a0 0%, #043d7a 100%) !important;
 }
 
-.nav-link.btn-primary::after {
-    display: none;
-}
-
-/* Mobile Menu Enhancements */
+/* Mobile Menu */
 @media (max-width: 991.98px) {
     .navbar-collapse {
         background: var(--white);

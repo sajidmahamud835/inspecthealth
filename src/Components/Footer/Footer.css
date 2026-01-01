@@ -1,6 +1,6 @@
-/* Footer Styles - Dark Modern Theme */
+/* Footer - Modern Milvik Style */
 footer {
-	background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+	background: linear-gradient(135deg, var(--gray-900) 0%, #0f172a 100%);
 	color: var(--gray-300);
 	padding: 4rem 0 2rem;
 	margin-top: 0;
@@ -11,7 +11,9 @@ footer .navbar-brand {
 	font-size: 1.5rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 
 footer .navbar-brand i {
@@ -56,38 +58,13 @@ footer ul li:not(:first-child):hover {
 footer .text-center p {
 	color: var(--gray-500);
 	font-size: 0.875rem;
-	border-top: 1px solid var(--gray-700);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	padding-top: 2rem;
 	margin-top: 2rem;
 }
 
 footer .text-center i {
 	color: var(--primary);
-}
-
-/* Social Links (if added) */
-.social-links {
-	display: flex;
-	gap: 1rem;
-	margin-top: 1rem;
-}
-
-.social-links a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 50%;
-	color: var(--gray-300);
-	transition: all var(--transition);
-}
-
-.social-links a:hover {
-	background: var(--primary);
-	color: var(--white);
-	transform: translateY(-3px);
 }
 
 /* Responsive */
@@ -98,5 +75,9 @@ footer .text-center i {
 
 	footer ul {
 		margin-bottom: 2rem;
+	}
+
+	footer .navbar-brand {
+		justify-content: center;
 	}
 }

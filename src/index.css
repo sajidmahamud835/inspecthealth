@@ -1,23 +1,23 @@
 /* ============================================
-   InspectHealth - Modern Design System
+   InspectHealth - Milvik-Inspired Design System
    ============================================ */
 
 /* CSS Custom Properties (Design Tokens) */
 :root {
-  /* Primary Colors - Healthcare Green */
-  --primary: #10b981;
-  --primary-dark: #059669;
-  --primary-light: #34d399;
-  --primary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  
-  /* Secondary Colors */
-  --secondary: #6366f1;
-  --secondary-dark: #4f46e5;
-  
-  /* Accent Colors */
-  --accent: #f59e0b;
-  --accent-light: #fbbf24;
-  
+  /* Primary Colors - Milvik Blue */
+  --primary: #0862C8;
+  --primary-dark: #0550a0;
+  --primary-light: #3b8bdb;
+  --primary-gradient: linear-gradient(135deg, #0862C8 0%, #0550a0 100%);
+
+  /* Secondary Colors - Accent Gold */
+  --secondary: #FFCB70;
+  --secondary-dark: #f0b84d;
+
+  /* Accent - Red */
+  --accent: #bd2426;
+  --accent-light: #dc3d3f;
+
   /* Neutral Colors */
   --dark: #1f2937;
   --gray-900: #111827;
@@ -31,26 +31,28 @@
   --gray-100: #f3f4f6;
   --gray-50: #f9fafb;
   --white: #ffffff;
-  
+
+  /* Success/Healthcare Green */
+  --success: #10b981;
+  --success-light: #34d399;
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  
+  --shadow-blue: 0 10px 40px -10px rgba(8, 98, 200, 0.4);
+
   /* Border Radius */
   --radius-sm: 0.375rem;
   --radius: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
   --radius-full: 9999px;
-  
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition: 300ms ease;
@@ -70,20 +72,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--gray-700);
   line-height: 1.6;
-  background-color: var(--gray-50);
+  background-color: var(--white);
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Poppins', 'Inter', sans-serif;
   font-weight: 600;
   color: var(--gray-900);
   line-height: 1.3;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
+h1 {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
 
 /* Links */
 a {
@@ -96,25 +111,26 @@ a:hover {
   color: var(--primary-dark);
 }
 
-/* Buttons - Enhanced Bootstrap Override */
+/* Buttons - Milvik Style */
 .btn {
-  font-weight: 500;
-  padding: 0.625rem 1.5rem;
-  border-radius: var(--radius-full);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-lg);
   transition: all var(--transition);
   border: none;
+  font-size: 1rem;
 }
 
 .btn-primary {
   background: var(--primary-gradient);
   color: white;
-  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.4);
+  box-shadow: var(--shadow-blue);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.5);
+  background: linear-gradient(135deg, #0550a0 0%, #043d7a 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px -10px rgba(8, 98, 200, 0.5);
 }
 
 .btn-outline-primary {
@@ -129,31 +145,116 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* Cards Enhancement */
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--gray-900);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-dark);
+}
+
+/* Cards - Clean Milvik Style */
 .card {
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   transition: all var(--transition);
   overflow: hidden;
+  background: var(--white);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
 }
 
-/* Glassmorphism Utility */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
+/* Feature Cards */
+.feature-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--gray-100);
+  transition: all var(--transition);
 }
 
-/* Section Spacing */
+.feature-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-5px);
+}
+
+.feature-card .icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e8f4fd 0%, #dbeafe 100%);
+  border-radius: var(--radius-xl);
+}
+
+.feature-card .icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--gray-900);
+}
+
+.feature-card p {
+  color: var(--gray-600);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+/* Section Styling */
 section {
-  padding: 4rem 0;
+  padding: 5rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.section-title p {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Stats Counter */
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+  color: var(--gray-600);
+  font-size: 1rem;
+  margin: 0;
 }
 
 /* Smooth Scroll */
@@ -178,19 +279,31 @@ code {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-fadeInUp {
   animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Gradient Text */
@@ -199,4 +312,57 @@ code {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Badge */
+.badge-primary {
+  background: linear-gradient(135deg, #e8f4fd 0%, #dbeafe 100%);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-100);
+}
+
+.testimonial-card .quote {
+  font-size: 1.0625rem;
+  color: var(--gray-700);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-card .author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-card .author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-card .author-info h4 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--gray-900);
+}
+
+.testimonial-card .author-info p {
+  font-size: 0.875rem;
+  color: var(--primary);
+  margin: 0;
 }

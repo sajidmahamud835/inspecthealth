@@ -15,6 +15,7 @@ const Login = () => {
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
   const redirectURL = '/home';
+
   const hanldeEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -25,72 +26,87 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     handleUserLogin(email, password)
-    .then((result) => {
-      setUser(result.user);
-      navigate(redirectURL);
-    })
-    .catch((error) => {
-      setError(error.message);
-    });
+      .then((result) => {
+        setUser(result.user);
+        navigate(redirectURL);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
+
   const loginWithGoogle = () => {
     handleGoogleLogin()
-    .then((result) => {
-      setUser(result.user);
-      navigate(redirectURL);
-    })
-    .catch((error) => setError(error.message))
+      .then((result) => {
+        setUser(result.user);
+        navigate(redirectURL);
+      })
+      .catch((error) => setError(error.message))
   }
 
-
-    return (
-        <div className="mt-5">
-          {error && 
-          <div className="alert alert-danger" role="alert">
-            {error}
+  return (
+    <div className="login-page">
+      <div className="form-container">
+        <div className="form-bg">
+          <div className="headline">
+            <h3>Welcome Back</h3>
+            <p>Sign in to continue to InspectHealth</p>
           </div>
-          }
-            <div className="row pt-5">
 
-    <div className="col-md-3 form">
-      <div className="form-bg">
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}
+            </div>
+          )}
 
-            <div className="headline">
-              <h3>Login</h3>
+          <div className="mb-3">
+            <button onClick={loginWithGoogle} type="button" className="btn btn-outline-dark google-btn-custom">
+              <i className="fab fa-google"></i>
+              Continue with Google
+            </button>
+          </div>
+
+          <div className="divider">
+            <span>or</span>
+          </div>
+
+          <form onSubmit={handleLogin}>
+            <div className="mb-3">
+              <input
+                onChange={hanldeEmail}
+                placeholder="Email address"
+                type="email"
+                className="form-control form-custom"
+                required
+              />
             </div>
 
             <div className="mb-3">
-              <button onClick={loginWithGoogle} type="submit" className="btn btn-outline-dark google-btn-custom">Continue with Google</button>
+              <input
+                onChange={hanldePassword}
+                placeholder="Password"
+                type="password"
+                className="form-control form-custom"
+                required
+              />
             </div>
 
-        <form onSubmit={handleLogin}>
-
-            <div><p className="text-center">or</p></div>
-
-            <div className="mb-3">
-              <input onChange={hanldeEmail} placeholder="Email" type="email" className="form-control form-custom" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-            </div>
-
-            <div className="mb-3">
-              <input onChange={hanldePassword} placeholder="Password" type="password" className="form-control form-custom" id="exampleInputPassword1"/>
-            </div>
-
-            <button type="submit" className="btn btn-success custom-btn">Login</button>
+            <button type="submit" className="btn btn-primary custom-btn">
+              Sign In
+            </button>
 
             <div className="already-account">
-            <p><a href="/">Forgot password?</a></p>
+              <p><a href="/" className="log-link">Forgot password?</a></p>
             </div>
 
             <div className="already-account">
-            <p>No account? <Link className="log-link" to="/register">Create one</Link> </p>
+              <p>Don't have an account? <Link className="log-link" to="/register">Create one</Link></p>
             </div>
-        </form>
+          </form>
         </div>
+      </div>
     </div>
-
-    </div>
-        </div>
-    );
+  );
 };
 
 export default Login;

@@ -9,7 +9,7 @@ const SingleService = (props) => {
                 <i className={img}></i>
                 <h4>{name}</h4>
                 <p>{name} {short_details} Our {name} service starting at {fee}$ and already {eusers} people took service today.</p>
-                <Link className="mt-3 btn btn-success custom-btn" to="/post">Select Service</Link>
+                <Link className="mt-3 btn btn-primary custom-btn" to="/post">Select Service</Link>
             </div>
         </div>
     );

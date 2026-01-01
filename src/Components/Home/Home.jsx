@@ -1,129 +1,257 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
-import image1 from '../../images/image-1.svg';
-import image2 from '../../images/image-2.svg';
-import image3 from '../../images/image-3.svg';
-import image4 from '../../images/image-4.svg';
-import client from '../../images/Ellipse 5.png';
+import heroDoctor from '../../images/hero-doctor.png';
+import telemedicineIcon from '../../images/telemedicine.png';
+import hospitalIcon from '../../images/hospital-discount.png';
+import checkupIcon from '../../images/health-checkup.png';
 import Post from '../Post/Post';
 import Services from '../Services/Services';
 
 const Home = () => {
-
 	const [post, setPost] = useState([]);
 
 	useEffect(() => {
-		console.log('product api called');
 		fetch('/post.JSON')
 			.then(res => res.json())
-			.then(data => {
-				setPost(data);
-				console.log('products received');
-			})
-	}, [])
+			.then(data => setPost(data))
+			.catch(err => console.log('Posts not loaded'));
+	}, []);
 
 	return (
 		<div>
-			<div className="container">
-				<div className="row pt-5 px-3">
-					<div className="col-md-6 hero-content">
-						<h2 className="small bg-light text-primary d-inline p-1 rounded-pill">Good health, good life</h2>
-						<h1 className="my-2">Schedule Your Health Checkup Today!</h1>
-						<p>Inspect health, scheduled health checkup, monthly membership. Prevention is better than cure. Frequent health inspections will help you to prevent several incoming diseases on time.</p>
-						<p><em>Our monthly membership starts from only 9$ per month. All membership comes with health insurance coverage.<strong className="text-danger">*</strong></em></p>
-						<button type="button" className="btn btn-primary">Get Started</button>
-					</div>
-					<div className="col-md-6">
-						<img className="img-fluid" src="https://image.freepik.com/free-vector/patient-taking-medical-examination_23-2148857674.jpg" alt="" />
-					</div>
-				</div>
-			</div>
-
-			<div className="feature my-5">
+			{/* Hero Section */}
+			<section className="hero-section">
 				<div className="container">
-					<div className="row">
-						<div className="col-md-3">
-							<div className="feature-content text-center">
-								<img src={image1} alt="" />
-								<h2>56789+</h2>
-								<p>Patient Served</p>
+					<div className="row align-items-center">
+						<div className="col-lg-6 hero-content">
+							<span className="badge-primary mb-3">
+								<i className="fas fa-heart-pulse me-2"></i>
+								Your Health, Our Priority
+							</span>
+							<h1>
+								Quality Healthcare <br />
+								<span className="gradient-text">Accessible to All</span>
+							</h1>
+							<p className="lead">
+								24/7 Telemedicine consultations, discounts at 500+ partner hospitals,
+								and comprehensive health coverage. Experience healthcare that's always within reach.
+							</p>
+							<div className="hero-buttons">
+								<button className="btn btn-primary me-3">
+									<i className="fas fa-phone-alt me-2"></i>
+									Get Started
+								</button>
+								<button className="btn btn-outline-primary">
+									<i className="fas fa-play-circle me-2"></i>
+									Learn More
+								</button>
+							</div>
+							<div className="hero-stats">
+								<div className="stat">
+									<strong>1M+</strong>
+									<span>Customers Served</span>
+								</div>
+								<div className="stat">
+									<strong>500+</strong>
+									<span>Partner Hospitals</span>
+								</div>
+								<div className="stat">
+									<strong>24/7</strong>
+									<span>Doctor Access</span>
+								</div>
 							</div>
 						</div>
-						<div className="col-md-3">
-							<div className="feature-content text-center">
-								<img src={image2} alt="" />
-								<h2>4568+</h2>
-								<p>Registered Today</p>
-							</div>
+						<div className="col-lg-6 hero-image">
+							<img
+								src={heroDoctor}
+								alt="Healthcare Professional"
+								className="img-fluid animate-float"
+							/>
 						</div>
-						<div className="col-md-3">
-							<div className="feature-content text-center">
-								<img src={image3} alt="" />
-								<h2>530+</h2>
-								<p>Appointment Scheduled Today</p>
-							</div>
-						</div>
-						<div className="col-md-3">
-							<div className="feature-content text-center">
-								<img src={image4} alt="" />
-								<h2>320+</h2>
-								<p>Appointment Done Today</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<Services></Services>
-			<section className="course-section pb-5">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-12 pt-3 pb-5 heading">
-							<h1>Blogs</h1>
-						</div>
-
-						{
-							post.map((post, index) => <Post
-								key={index}
-								post={post}
-							>
-							</Post>)
-						}
-
 					</div>
 				</div>
 			</section>
 
-			<section className="testimonial pb-5">
+			{/* What We Offer Section */}
+			<section className="features-section">
 				<div className="container">
-					<div className="row">
-						<div className="col-md-12 pt-3 pb-5 heading">
-							<h1>Testimonial</h1>
+					<div className="section-title">
+						<h2>What We Offer</h2>
+						<p>Comprehensive healthcare solutions designed for you and your family</p>
+					</div>
+					<div className="row g-4">
+						<div className="col-lg-4 col-md-6">
+							<div className="feature-card">
+								<div className="icon">
+									<img src={telemedicineIcon} alt="Telemedicine" />
+								</div>
+								<h3>24/7 Telemedicine</h3>
+								<p>Connect with qualified doctors anytime via audio or video call. Get medical advice within 5 minutes.</p>
+							</div>
+						</div>
+						<div className="col-lg-4 col-md-6">
+							<div className="feature-card">
+								<div className="icon">
+									<img src={hospitalIcon} alt="Hospital Discount" />
+								</div>
+								<h3>Hospital Discounts</h3>
+								<p>Save up to 50% on hospitalization and diagnostic tests at 500+ partner hospitals nationwide.</p>
+							</div>
+						</div>
+						<div className="col-lg-4 col-md-6">
+							<div className="feature-card">
+								<div className="icon">
+									<img src={checkupIcon} alt="Health Checkup" />
+								</div>
+								<h3>Health Checkups</h3>
+								<p>Preventive care with regular health screenings. Early detection means better outcomes.</p>
+							</div>
 						</div>
 					</div>
+				</div>
+			</section>
 
+			{/* Stats Section */}
+			<section className="stats-section">
+				<div className="container">
 					<div className="row">
-						<div className="col-md-2">
+						<div className="col-6 col-md-3">
+							<div className="stat-item">
+								<h3>56,789+</h3>
+								<p>Patients Served</p>
+							</div>
 						</div>
+						<div className="col-6 col-md-3">
+							<div className="stat-item">
+								<h3>4,568+</h3>
+								<p>Registered Today</p>
+							</div>
+						</div>
+						<div className="col-6 col-md-3">
+							<div className="stat-item">
+								<h3>530+</h3>
+								<p>Appointments Today</p>
+							</div>
+						</div>
+						<div className="col-6 col-md-3">
+							<div className="stat-item">
+								<h3>320+</h3>
+								<p>Completed Today</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-						<div className="col-md-8">
-							<div className="row">
-								<div className="col-md-4">
-									<div className="client">
-										<img src={client} alt="" />
-									</div>
+			{/* Services Section */}
+			<Services />
+
+			{/* Blog Section */}
+			{post.length > 0 && (
+				<section className="blog-section">
+					<div className="container">
+						<div className="section-title">
+							<h2>Health Blog</h2>
+							<p>Stay informed with the latest health tips and articles</p>
+						</div>
+						<div className="row">
+							{post.map((p, index) => (
+								<Post key={index} post={p} />
+							))}
+						</div>
+					</div>
+				</section>
+			)}
+
+			{/* Testimonial Section */}
+			<section className="testimonial-section">
+				<div className="container">
+					<div className="section-title">
+						<h2>What Our Customers Say</h2>
+						<p>Satisfaction of our customers is our strongest testament</p>
+					</div>
+					<div className="row g-4">
+						<div className="col-lg-4">
+							<div className="testimonial-card">
+								<div className="stars mb-3">
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
 								</div>
-								<div className="col-md-8">
-									<p>Best service and best care. They take care of every paintans as if they are a family member. </p>
-									<small>- Murad Hossain</small>
+								<p className="quote">
+									"Best service and best care. They take care of every patient as if they are a family member.
+									I highly recommend InspectHealth to everyone!"
+								</p>
+								<div className="author">
+									<div className="author-avatar">MH</div>
+									<div className="author-info">
+										<h4>Murad Hossain</h4>
+										<p>Health Plan User</p>
+									</div>
 								</div>
 							</div>
 						</div>
-
-						<div className="col-md-2">
+						<div className="col-lg-4">
+							<div className="testimonial-card">
+								<div className="stars mb-3">
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+								</div>
+								<p className="quote">
+									"The telemedicine service is amazing. Got connected to a doctor within minutes and
+									received excellent consultation for my daughter."
+								</p>
+								<div className="author">
+									<div className="author-avatar">RH</div>
+									<div className="author-info">
+										<h4>Rajib Hossain</h4>
+										<p>Premium Member</p>
+									</div>
+								</div>
+							</div>
 						</div>
-
+						<div className="col-lg-4">
+							<div className="testimonial-card">
+								<div className="stars mb-3">
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+									<i className="fas fa-star text-warning"></i>
+								</div>
+								<p className="quote">
+									"Fast claim processing! I received my hospital cashback within just 7 days.
+									InspectHealth made a difficult time much easier for me."
+								</p>
+								<div className="author">
+									<div className="author-avatar">KB</div>
+									<div className="author-info">
+										<h4>Kamrul Bijoy</h4>
+										<p>Health Plan User</p>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
+				</div>
+			</section>
 
+			{/* CTA Section */}
+			<section className="cta-section">
+				<div className="container">
+					<div className="cta-content text-center">
+						<h2>Ready to Take Control of Your Health?</h2>
+						<p>Join thousands of satisfied customers who trust InspectHealth for their healthcare needs</p>
+						<button className="btn btn-light btn-lg">
+							<i className="fas fa-phone-alt me-2"></i>
+							Contact Us Today
+						</button>
+					</div>
 				</div>
 			</section>
 		</div>

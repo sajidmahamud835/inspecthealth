@@ -10,7 +10,7 @@ const Post = (props) => {
 				<img className="img-fluid" src={img} alt="" />
 				<h2>{name}</h2>
 				<h5>{details}</h5>
-				<Link className="mt-3 btn btn-success custom-btn" to="/post">Read more...</Link>
+				<Link className="mt-3 btn btn-primary custom-btn" to="/post">Read more...</Link>
 				<ul>
 					<li><i className="fas fa-calendar"></i>{date}</li>
 					<li><i className="fas fa-user"></i>{visitor} views</li>
