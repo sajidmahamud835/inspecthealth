@@ -14,7 +14,7 @@ const Home = () => {
 
 	useEffect(() => {
 		console.log('product api called');
-		fetch('./post.JSON')
+		fetch('/post.JSON')
 			.then(res => res.json())
 			.then(data => {
 				setPost(data);
@@ -82,8 +82,8 @@ const Home = () => {
 						</div>
 
 						{
-							post.map(post => <Post
-								key={post.key}
+							post.map((post, index) => <Post
+								key={index}
 								post={post}
 							>
 							</Post>)

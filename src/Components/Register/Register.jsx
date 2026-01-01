@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,useHistory,useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from './../../Hooks/useAuth';
 import './Register.css';
 
@@ -12,7 +12,7 @@ const Register = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
   const redirectURL = '/home';
@@ -25,11 +25,12 @@ const Register = () => {
 
   // console.log(email, password);
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     handleUserRegister(email, password)
     .then((result) => {
       setUser(result.user);
-      history.push(redirectURL);
+      navigate(redirectURL);
     })
     .catch((error) => {
       setError(error.message);
@@ -40,7 +41,7 @@ const Register = () => {
     handleGoogleLogin()
     .then((result) => {
       setUser(result.user);
-      history.push(redirectURL);
+      navigate(redirectURL);
     })
     .catch((error) => setError(error.message))
   }

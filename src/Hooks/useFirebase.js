@@ -10,14 +10,14 @@ import {
 } from "firebase/auth";
 
 import { useEffect, useState } from "react";
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 FirebaseInit();
 
 const useFirebase = () => {
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
-  const history = useHistory();
+  const navigate = useNavigate();
   const redirectURL = '/home';
 
   const [user, setUser] = useState({});
@@ -46,7 +46,7 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         setUser({});
-        history.push(redirectURL);
+        navigate(redirectURL);
       })
       .catch((err) => {
         console.log(err);
