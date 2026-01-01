@@ -103,11 +103,34 @@ The application is built as a client-side rendered (CSR) React application:
 
 ## 📅 Changelog
 
-### January 2, 2026 — Vite Migration
-- **Build System**: Migrated from Create React App to **Vite 5** for faster development.
-- **React Upgrade**: Upgraded to **React 18** with modern concurrent features.
-- **Codebase Modernization**: Renamed all `.js` components to `.jsx` for better tooling support.
-- **Performance**: Significantly reduced bundle size and improved HMR speed.
+### January 2, 2026 — Complete UI Redesign
+
+#### 🎨 Design System Overhaul
+- **Color Theme**: Unified premium blue (#0862C8) color scheme throughout application
+- **Typography**: Added Inter + Poppins fonts for modern look
+- **Bootstrap**: Upgraded to v5.3.3 (installed via npm)
+
+#### 🏠 Homepage Improvements
+- New hero section with gradient background and animated illustrations
+- Feature cards: 24/7 Telemedicine, Hospital Discounts, Health Checkups
+- Blue stats counter section with patient metrics
+- 3-column testimonial cards with star ratings
+- CTA section with contact button
+- Optimized section heights and spacing
+
+#### 📄 Page Updates
+- **About**: Converted all colors from green to blue
+- **Login**: Modern centered layout with gradient background, improved form UX
+- **Register**: Matching modern design with Login page
+- **Services**: All icons and buttons updated to blue theme
+
+#### 🛠️ Technical Improvements
+- Migrated from Create React App to **Vite 5**
+- Upgraded to **React 18** with concurrent features
+- Renamed all `.js` components to `.jsx`
+- Installed Bootstrap via npm instead of CDN
+- Removed excessive `min-height: 100vh` from sections
+- Fixed footer margin issues
 
 ---
 
