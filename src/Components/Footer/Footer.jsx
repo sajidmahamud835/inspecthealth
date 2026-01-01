@@ -41,7 +41,7 @@ const Footer = () => {
 								<li>MRI For everyone</li>
 							</ul>
 						</div>
-						<div className="text-center pt-5"><p>Copyright © 2021 <i className="fas fa-search-plus"></i> InspectHealth</p></div>
+						<div className="text-center pt-5"><p>Copyright © 2026 <i className="fas fa-search-plus"></i> InspectHealth. All rights reserved.</p></div>
 					</div>
 				</div>
 			</footer>

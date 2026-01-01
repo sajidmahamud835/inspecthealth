@@ -1,23 +1,102 @@
-footer{
-	background: #282531;
-	color: #fff;
+/* Footer Styles - Dark Modern Theme */
+footer {
+	background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+	color: var(--gray-300);
+	padding: 4rem 0 2rem;
+	margin-top: 0;
 }
 
-footer p{
-	font-size: 16px;
-	line-height: 30px;
+footer .navbar-brand {
+	color: var(--white) !important;
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	display: inline-block;
 }
 
-footer ul{
+footer .navbar-brand i {
+	color: var(--primary-light);
+}
+
+footer .text-footer,
+footer p {
+	color: var(--gray-400);
+	font-size: 0.9375rem;
+	line-height: 1.7;
+}
+
+footer ul {
 	list-style: none;
-	margin: 0;
 	padding: 0;
+	margin: 0;
 }
 
-footer ul li{
-	font-size: 16px;
-	line-height: 30px;
+footer ul li {
+	padding: 0.375rem 0;
+	color: var(--gray-400);
+	font-size: 0.9375rem;
+	transition: all var(--transition-fast);
 }
-.text-footer{
-	margin-top: 20px;
+
+footer ul li b {
+	color: var(--white);
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	display: inline-block;
+}
+
+footer ul li:not(:first-child):hover {
+	color: var(--primary-light);
+	padding-left: 0.5rem;
+	cursor: pointer;
+}
+
+/* Copyright */
+footer .text-center p {
+	color: var(--gray-500);
+	font-size: 0.875rem;
+	border-top: 1px solid var(--gray-700);
+	padding-top: 2rem;
+	margin-top: 2rem;
+}
+
+footer .text-center i {
+	color: var(--primary);
+}
+
+/* Social Links (if added) */
+.social-links {
+	display: flex;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.social-links a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	color: var(--gray-300);
+	transition: all var(--transition);
+}
+
+.social-links a:hover {
+	background: var(--primary);
+	color: var(--white);
+	transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	footer {
+		text-align: center;
+	}
+
+	footer ul {
+		margin-bottom: 2rem;
+	}
 }
