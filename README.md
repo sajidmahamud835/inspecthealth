@@ -3,6 +3,7 @@
 # 🏥 InspectHealth — Modern Healthcare Services Platform
 
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-Authentication-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap)](https://getbootstrap.com/)
 
@@ -33,7 +34,8 @@ This project implements a **Role-Based Access Control (RBAC)** prototype using F
 
 The application is built as a client-side rendered (CSR) React application:
 
--   **Frontend Library**: React.js (Hooks-based architecture).
+-   **Build System**: Vite 5 for lightning-fast development and optimized production builds.
+-   **Frontend Library**: React 18 (Hooks-based architecture with `.jsx` components).
 -   **Routing**: React Router v6 for dynamic navigation.
 -   **Authentication & Backend**: Firebase v9 (Modular SDK) for auth and hosting.
 -   **Styling**: Bootstrap 5 SCSS for rapid UI development.
@@ -93,9 +95,19 @@ The application is built as a client-side rendered (CSR) React application:
 
 4.  **Run Development Server**
     ```bash
-    npm start
+    npm run dev
     ```
-    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+---
+
+## 📅 Changelog
+
+### January 2, 2026 — Vite Migration
+- **Build System**: Migrated from Create React App to **Vite 5** for faster development.
+- **React Upgrade**: Upgraded to **React 18** with modern concurrent features.
+- **Codebase Modernization**: Renamed all `.js` components to `.jsx` for better tooling support.
+- **Performance**: Significantly reduced bundle size and improved HMR speed.
 
 ---
 
