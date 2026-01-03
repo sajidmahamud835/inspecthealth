@@ -7,7 +7,8 @@ const Post = (props) => {
 	return (
 		<div className="col-md-4 mb-5">
 			<div className="course">
-				<img className="img-fluid" src={img} alt="" />
+				{/* Lazy load images to improve initial page load speed */}
+				<img className="img-fluid" src={img} alt="" loading="lazy" />
 				<h2>{name}</h2>
 				<h5>{details}</h5>
 				<Link className="mt-3 btn btn-primary custom-btn" to="/post">Read more...</Link>
