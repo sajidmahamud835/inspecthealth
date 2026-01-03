@@ -83,7 +83,8 @@ const Home = () => {
 						<div className="col-lg-4 col-md-6">
 							<div className="feature-card">
 								<div className="icon">
-									<img src={telemedicineIcon} alt="Telemedicine" />
+									{/* Lazy load secondary images */}
+									<img src={telemedicineIcon} alt="Telemedicine" loading="lazy" />
 								</div>
 								<h3>24/7 Telemedicine</h3>
 								<p>Connect with qualified doctors anytime via audio or video call. Get medical advice within 5 minutes.</p>
@@ -92,7 +93,7 @@ const Home = () => {
 						<div className="col-lg-4 col-md-6">
 							<div className="feature-card">
 								<div className="icon">
-									<img src={hospitalIcon} alt="Hospital Discount" />
+									<img src={hospitalIcon} alt="Hospital Discount" loading="lazy" />
 								</div>
 								<h3>Hospital Discounts</h3>
 								<p>Save up to 50% on hospitalization and diagnostic tests at 500+ partner hospitals nationwide.</p>
@@ -101,7 +102,7 @@ const Home = () => {
 						<div className="col-lg-4 col-md-6">
 							<div className="feature-card">
 								<div className="icon">
-									<img src={checkupIcon} alt="Health Checkup" />
+									<img src={checkupIcon} alt="Health Checkup" loading="lazy" />
 								</div>
 								<h3>Health Checkups</h3>
 								<p>Preventive care with regular health screenings. Early detection means better outcomes.</p>
