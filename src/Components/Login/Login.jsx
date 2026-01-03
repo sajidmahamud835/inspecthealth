@@ -14,6 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const redirectURL = '/home';
 
   const hanldeEmail = (e) => {
@@ -25,6 +26,8 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
     handleUserLogin(email, password)
       .then((result) => {
         setUser(result.user);
@@ -32,6 +35,7 @@ const Login = () => {
       })
       .catch((error) => {
         setError(error.message);
+        setIsSubmitting(false);
       });
   };
 
@@ -75,6 +79,7 @@ const Login = () => {
               <input
                 onChange={hanldeEmail}
                 placeholder="Email address"
+                aria-label="Email address"
                 type="email"
                 className="form-control form-custom"
                 required
@@ -85,14 +90,27 @@ const Login = () => {
               <input
                 onChange={hanldePassword}
                 placeholder="Password"
+                aria-label="Password"
                 type="password"
                 className="form-control form-custom"
                 required
               />
             </div>
 
-            <button type="submit" className="btn btn-primary custom-btn">
-              Sign In
+            <button
+              type="submit"
+              className="btn btn-primary custom-btn"
+              disabled={isSubmitting}
+              aria-disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Signing In...
+                </>
+              ) : (
+                "Sign In"
+              )}
             </button>
 
             <div className="already-account">
