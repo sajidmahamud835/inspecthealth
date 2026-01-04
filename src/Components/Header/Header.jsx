@@ -41,7 +41,7 @@ const Header = () => {
                                         </>
                                     )}
                                     <li className="nav-item ms-5">
-                                        <Link className="nav-link btn btn-primary text-white" to="/quary">Submit Quary</Link>
+                                        <Link className="nav-link btn btn-primary text-white" to="/query">Submit Query</Link>
                                     </li>
 
                                 </ul>

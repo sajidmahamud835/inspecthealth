@@ -14,6 +14,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const redirectURL = '/home';
 
   const hanldeEmail = (e) => {
@@ -25,6 +26,8 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
     handleUserRegister(email, password)
       .then((result) => {
         setUser(result.user);
@@ -32,6 +35,7 @@ const Register = () => {
       })
       .catch((error) => {
         setError(error.message);
+        setIsSubmitting(false);
       });
   };
 
@@ -75,6 +79,7 @@ const Register = () => {
               <input
                 onChange={hanldeEmail}
                 placeholder="Email address"
+                aria-label="Email address"
                 type="email"
                 className="form-control form-custom"
                 required
@@ -85,14 +90,27 @@ const Register = () => {
               <input
                 onChange={hanldePassword}
                 placeholder="Password"
+                aria-label="Password"
                 type="password"
                 className="form-control form-custom"
                 required
               />
             </div>
 
-            <button type="submit" className="btn btn-primary custom-btn">
-              Create Account
+            <button
+              type="submit"
+              className="btn btn-primary custom-btn"
+              disabled={isSubmitting}
+              aria-disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Creating Account...
+                </>
+              ) : (
+                "Create Account"
+              )}
             </button>
 
             <div className="already-account">

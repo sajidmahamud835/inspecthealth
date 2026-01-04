@@ -25,7 +25,7 @@ function App() {
             <Route path="/services" element={<><Services /><Footer /></>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/quary" element={<><Contact /><Footer /></>} />
+            <Route path="/query" element={<><Contact /><Footer /></>} />
             <Route path="/post" element={<><SinglePost /><Footer /></>} />
             {/* <PrivateRoute path="/post">
               <SinglePost></SinglePost>
