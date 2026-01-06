@@ -15,6 +15,7 @@ const Register = () => {
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isGoogleSubmitting, setIsGoogleSubmitting] = useState(false);
   const redirectURL = '/home';
 
   const hanldeEmail = (e) => {
@@ -40,12 +41,14 @@ const Register = () => {
   };
 
   const signUpWithGoogle = () => {
+    setIsGoogleSubmitting(true);
     handleGoogleLogin()
       .then((result) => {
         setUser(result.user);
         navigate(redirectURL);
       })
       .catch((error) => setError(error.message))
+      .finally(() => setIsGoogleSubmitting(false));
   }
 
   return (
@@ -64,9 +67,23 @@ const Register = () => {
           )}
 
           <div className="mb-3">
-            <button onClick={signUpWithGoogle} type="button" className="btn btn-outline-dark google-btn-custom">
-              <i className="fab fa-google"></i>
-              Continue with Google
+            <button
+              onClick={signUpWithGoogle}
+              type="button"
+              className="btn btn-outline-dark google-btn-custom"
+              disabled={isGoogleSubmitting}
+            >
+              {isGoogleSubmitting ? (
+                <>
+                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Connecting...
+                </>
+              ) : (
+                <>
+                  <i className="fab fa-google"></i>
+                  Continue with Google
+                </>
+              )}
             </button>
           </div>
 

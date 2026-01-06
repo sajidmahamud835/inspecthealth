@@ -5,7 +5,8 @@
 [33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
 Port 3000 is in use, trying another one...
 
-  VITE v5.4.21  ready in 295 ms
+  VITE v5.4.21  ready in 274 ms
 
-  ➜  Local:   http://localhost:12:40:27 AM [vite] hmr update /src/context/AuthProvider/AuthProvider.jsx
-12:42:54 AM [vite] hmr update /src/context/AuthProvider/AuthProvider.jsx
+  ➜  Local:   http://localhost:3001/
+  ➜  Network: use --host to expose
+12:42:55 AM [vite] hmr update /src/context/AuthProvider/AuthProvider.jsx
