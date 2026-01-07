@@ -104,6 +104,32 @@ The application is built as a client-side rendered (CSR) React application:
 
 ## 📅 Changelog
 
+### January 8, 2026 — Vercel Deployment & Feature Updates
+
+#### 🚀 Deployment
+- **Vercel**: Deployed to [inspecthealth.vercel.app](https://inspecthealth.vercel.app)
+- Fixed Firebase config gitignore issue for successful builds
+
+#### 📅 Appointment Scheduling
+- **Custom Calendar Picker**: Replaced Calendly iframe with interactive 3-step booking flow
+- Step 1: Select date from calendar grid
+- Step 2: Choose available time slots
+- Step 3: Pick doctor and confirm booking
+- Success confirmation with booking details
+
+#### 👨‍⚕️ Doctor Profiles
+- New `/doctors` page with 6 specialist profiles
+- Availability status badges (Available/Unavailable)
+- Doctor details: bio, education, languages, ratings, reviews
+- Fixed card alignment with flexbox layout
+
+#### 🎨 UI Polish
+- **Navbar**: Cleaner design with centered links and "Book Now" CTA
+- **Footer**: Added developer credit with GitHub link
+- Improved overall consistency and spacing
+
+---
+
 ### January 2, 2026 — Complete UI Redesign
 
 #### 🎨 Design System Overhaul
