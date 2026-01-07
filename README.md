@@ -2,6 +2,7 @@
 
 # 🏥 InspectHealth — Modern Healthcare Services Platform
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-00C7B7?style=for-the-badge&logo=vercel&logoColor=white)](https://inspecthealth.vercel.app)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-Authentication-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
@@ -11,7 +12,7 @@
 
 *Accessible • Secure • Responsive*
 
-[Report Bug](https://github.com/sajidmahamud835/inspecthealth/issues) · [Request Feature](https://github.com/sajidmahamud835/inspecthealth/issues)
+[Live Demo](https://inspecthealth.vercel.app) · [Report Bug](https://github.com/sajidmahamud835/inspecthealth/issues) · [Request Feature](https://github.com/sajidmahamud835/inspecthealth/issues)
 
 </div>
 
