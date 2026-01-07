@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SingleService = (props) => {
+const SingleService = React.memo((props) => {
     const { name, short_details, fee, eusers, img } = props.service;
     return (
         <div className="col-md-4 col-sm-6 equal-height">
@@ -13,6 +13,6 @@ const SingleService = (props) => {
             </div>
         </div>
     );
-};
+});
 
 export default SingleService;

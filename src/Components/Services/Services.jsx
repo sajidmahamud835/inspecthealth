@@ -32,8 +32,7 @@ const Services = () => {
                         service.map((service, index) => <SingleService
                             key={index}
                             service={service}
-                        >
-                        </SingleService>)
+                        />)
                     }
 
                 </div>
