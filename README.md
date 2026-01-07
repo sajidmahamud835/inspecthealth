@@ -58,7 +58,7 @@ The application is built as a client-side rendered (CSR) React application:
 ### 🗓️ Research & Development Plan (Todo)
 
 - [x] **Appointment Scheduling**: Integrated Calendly calendar for booking consultations ([/appointment](https://inspecthealth.vercel.app/appointment)).
-- [ ] **Doctor Profiles**: Detailed bio pages for medical professionals with availability status.
+- [x] **Doctor Profiles**: Detailed bio pages with availability status, ratings, and education ([/doctors](https://inspecthealth.vercel.app/doctors)).
 - [ ] **Telemedicine Interface**: (Experimental) WebRTC integration for video consultations.
 - [ ] **Medical Records**: Secure storage (Firestore) for patient history (requires HIPAA compliance review).
 

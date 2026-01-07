@@ -26,6 +26,9 @@ const Header = () => {
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/services">Services</Link>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/doctors">Our Doctors</Link>
+                                    </li>
                                     {(user.email || user.displayName) ? (
                                         <li className="nav-item">
                                             <button onClick={handleLogout} type="button" className="btn btn-custom">Logout</button>
