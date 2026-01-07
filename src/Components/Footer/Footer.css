@@ -81,3 +81,22 @@ footer .text-center i {
 		justify-content: center;
 	}
 }
+
+/* Developer Credit */
+.developer-credit {
+	font-size: 0.85rem !important;
+	margin-top: 0.5rem !important;
+	color: var(--gray-500) !important;
+}
+
+.developer-credit a {
+	color: #0862c8 !important;
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.2s ease;
+}
+
+.developer-credit a:hover {
+	color: #4da3ff !important;
+	text-decoration: underline;
+}

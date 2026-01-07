@@ -41,7 +41,12 @@ const Footer = () => {
 								<li>MRI For everyone</li>
 							</ul>
 						</div>
-						<div className="text-center pt-5"><p>Copyright © 2026 <i className="fas fa-search-plus"></i> InspectHealth. All rights reserved.</p></div>
+						<div className="text-center pt-5 footer-bottom">
+							<p>Copyright © 2026 🏥 InspectHealth. All rights reserved.</p>
+							<p className="developer-credit">
+								Developed by <a href="https://github.com/sajidmahamud835" target="_blank" rel="noopener noreferrer">Sajid Mahamud</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</footer>

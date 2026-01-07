@@ -1,62 +1,62 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import './Header.css';
 
 const Header = () => {
     const { handleLogout, user } = useAuth();
-    return (
-        <div>
-            <div className="container">
-                <div className="row">
-                    <nav className="navbar navbar-expand-lg navbar-light">
-                        <div className="container-fluid">
-                            <a className="navbar-brand text-primary" href="/"><i className="fas fa-search-plus"></i> InspectHealth</a>
-                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                            <div className="collapse navbar-collapse" id="navbarNav">
-                                <ul className="navbar-nav ms-auto">
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/home">Home</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/about">About</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/services">Services</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/doctors">Our Doctors</Link>
-                                    </li>
-                                    {(user.email || user.displayName) ? (
-                                        <li className="nav-item">
-                                            <button onClick={handleLogout} type="button" className="btn btn-custom">Logout</button>
-                                        </li>
-                                    ) : (
-                                        <>
-                                            <li className="nav-item">
-                                                <Link className="nav-link" to="/login">Login</Link>
-                                            </li>
-                                            <li className="nav-item">
-                                                <Link className="nav-link" to="/register">Register</Link>
-                                            </li>
-                                        </>
-                                    )}
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/appointment">Book Appointment</Link>
-                                    </li>
-                                    <li className="nav-item ms-3">
-                                        <Link className="nav-link btn btn-primary text-white" to="/query">Submit Query</Link>
-                                    </li>
+    const isLoggedIn = user.email || user.displayName;
 
-                                </ul>
-                            </div>
+    return (
+        <header className="main-header">
+            <div className="container">
+                <nav className="navbar navbar-expand-lg">
+                    <Link className="navbar-brand" to="/">
+                        <span className="brand-icon">🏥</span>
+                        <span className="brand-text">InspectHealth</span>
+                    </Link>
+
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav mx-auto">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/">Home</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/services">Services</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/doctors">Doctors</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/about">About</NavLink>
+                            </li>
+                        </ul>
+
+                        <div className="nav-actions">
+                            {isLoggedIn ? (
+                                <div className="user-menu">
+                                    <span className="user-greeting">Hi, {user.displayName || 'User'}</span>
+                                    <button onClick={handleLogout} className="btn btn-outline-primary btn-sm">
+                                        Logout
+                                    </button>
+                                </div>
+                            ) : (
+                                <Link to="/login" className="btn btn-outline-primary btn-sm me-2">
+                                    Login
+                                </Link>
+                            )}
+                            <Link to="/appointment" className="btn btn-primary">
+                                Book Now
+                            </Link>
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
-        </div>
+        </header>
     );
 };
 
