@@ -1,0 +1,55 @@
+.appointment-section {
+    background: linear-gradient(135deg, #f0f7ff 0%, #fff 100%);
+    min-height: 100vh;
+}
+
+.calendly-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 24px rgba(8, 98, 200, 0.1);
+}
+
+.calendly-embed {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.info-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 24px rgba(8, 98, 200, 0.1);
+    height: 100%;
+}
+
+.info-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #0862c8;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.contact-fallback {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+@media (max-width: 991px) {
+    .calendly-card {
+        margin-bottom: 1.5rem;
+    }
+}

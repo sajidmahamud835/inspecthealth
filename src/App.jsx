@@ -14,6 +14,7 @@ const Services = lazy(() => import('./Components/Services/Services'));
 const SinglePost = lazy(() => import('./Components/SinglePost/SinlgePost'));
 const NotFound = lazy(() => import('./Components/NotFound/NotFound'));
 const Contact = lazy(() => import('./Components/Contact/Contact'));
+const Appointment = lazy(() => import('./Components/Appointment/Appointment'));
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/query" element={<><Contact /><Footer /></>} />
+              <Route path="/appointment" element={<><Appointment /><Footer /></>} />
               <Route path="/post" element={<><SinglePost /><Footer /></>} />
               {/* <PrivateRoute path="/post">
                 <SinglePost></SinglePost>

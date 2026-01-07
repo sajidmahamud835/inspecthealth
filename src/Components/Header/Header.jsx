@@ -40,7 +40,10 @@ const Header = () => {
                                             </li>
                                         </>
                                     )}
-                                    <li className="nav-item ms-5">
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/appointment">Book Appointment</Link>
+                                    </li>
+                                    <li className="nav-item ms-3">
                                         <Link className="nav-link btn btn-primary text-white" to="/query">Submit Query</Link>
                                     </li>
 
