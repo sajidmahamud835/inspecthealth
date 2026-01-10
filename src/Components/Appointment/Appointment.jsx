@@ -189,10 +189,12 @@ const Appointment = () => {
                                 <h4>Select Your Doctor</h4>
                                 <div className="doctors-list">
                                     {doctors.map(doctor => (
-                                        <div
+                                        <button
+                                            type="button"
                                             key={doctor.id}
                                             className={`doctor-option ${selectedDoctor?.id === doctor.id ? 'selected' : ''}`}
                                             onClick={() => handleDoctorSelect(doctor)}
+                                            aria-pressed={selectedDoctor?.id === doctor.id}
                                         >
                                             <span className="doctor-avatar">{doctor.avatar}</span>
                                             <div className="doctor-info">
@@ -200,7 +202,7 @@ const Appointment = () => {
                                                 <span>{doctor.specialty}</span>
                                             </div>
                                             {selectedDoctor?.id === doctor.id && <span className="check">✓</span>}
-                                        </div>
+                                        </button>
                                     ))}
                                 </div>
 
