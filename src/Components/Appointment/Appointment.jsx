@@ -153,9 +153,11 @@ const Appointment = () => {
                                 {days.map((date, index) => (
                                     <button
                                         key={index}
+                                        type="button"
                                         className={`calendar-day ${!date ? 'empty' : ''} ${isToday(date) ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${selectedDate?.toDateString() === date?.toDateString() ? 'selected' : ''}`}
                                         onClick={() => handleDateSelect(date)}
                                         disabled={!date || isPast(date)}
+                                        aria-label={date ? date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : ''}
                                     >
                                         {date?.getDate()}
                                     </button>
@@ -171,8 +173,10 @@ const Appointment = () => {
                                     {timeSlots.map(time => (
                                         <button
                                             key={time}
+                                            type="button"
                                             className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
                                             onClick={() => handleTimeSelect(time)}
+                                            aria-pressed={selectedTime === time}
                                         >
                                             {time}
                                         </button>
@@ -189,10 +193,12 @@ const Appointment = () => {
                                 <h4>Select Your Doctor</h4>
                                 <div className="doctors-list">
                                     {doctors.map(doctor => (
-                                        <div
+                                        <button
                                             key={doctor.id}
+                                            type="button"
                                             className={`doctor-option ${selectedDoctor?.id === doctor.id ? 'selected' : ''}`}
                                             onClick={() => handleDoctorSelect(doctor)}
+                                            aria-pressed={selectedDoctor?.id === doctor.id}
                                         >
                                             <span className="doctor-avatar">{doctor.avatar}</span>
                                             <div className="doctor-info">
@@ -200,7 +206,7 @@ const Appointment = () => {
                                                 <span>{doctor.specialty}</span>
                                             </div>
                                             {selectedDoctor?.id === doctor.id && <span className="check">✓</span>}
-                                        </div>
+                                        </button>
                                     ))}
                                 </div>
 
