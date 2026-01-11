@@ -243,9 +243,20 @@
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
+    width: 100%; /* Ensure button takes full width */
+    text-align: left; /* Reset text alignment for button */
+    background: #fff; /* Explicit background */
+    font-family: inherit; /* Inherit font */
+    color: inherit; /* Inherit color */
 }
 
 .doctor-option:hover {
+    border-color: #0862c8;
+}
+
+.doctor-option:focus-visible {
+    outline: 2px solid #0862c8;
+    outline-offset: 2px;
     border-color: #0862c8;
 }
 
