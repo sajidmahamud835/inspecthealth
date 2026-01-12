@@ -95,8 +95,12 @@ const DoctorCard = ({ doctor }) => (
         <div className="doctor-card">
             <div className="doctor-image-wrapper">
                 <img src={doctor.image} alt={doctor.name} className="doctor-image" />
-                <span className={`availability-badge ${doctor.available ? 'available' : 'unavailable'}`}>
-                    {doctor.available ? '● Available' : '○ Unavailable'}
+                <span
+                    className={`availability-badge ${doctor.available ? 'available' : 'unavailable'}`}
+                    aria-label={doctor.available ? "Doctor is available" : "Doctor is unavailable"}
+                >
+                    <span aria-hidden="true">{doctor.available ? '● ' : '○ '}</span>
+                    {doctor.available ? 'Available' : 'Unavailable'}
                 </span>
             </div>
             <div className="doctor-info">
@@ -104,20 +108,20 @@ const DoctorCard = ({ doctor }) => (
                 <p className="doctor-specialty">{doctor.specialty}</p>
 
                 <div className="doctor-stats">
-                    <span className="stat">
-                        <strong>⭐ {doctor.rating}</strong>
-                        <small>({doctor.reviews} reviews)</small>
+                    <span className="stat" aria-label={`Rating: ${doctor.rating} stars out of 5, based on ${doctor.reviews} reviews`}>
+                        <strong aria-hidden="true">⭐ {doctor.rating}</strong>
+                        <small aria-hidden="true">({doctor.reviews} reviews)</small>
                     </span>
-                    <span className="stat">
-                        <strong>🩺 {doctor.experience}</strong>
+                    <span className="stat" aria-label={`Experience: ${doctor.experience}`}>
+                        <strong aria-hidden="true">🩺 {doctor.experience}</strong>
                     </span>
                 </div>
 
                 <p className="doctor-bio">{doctor.bio}</p>
 
                 <div className="doctor-meta">
-                    <p><strong>🎓</strong> {doctor.education}</p>
-                    <p><strong>🌐</strong> {doctor.languages.join(', ')}</p>
+                    <p aria-label={`Education: ${doctor.education}`}><strong aria-hidden="true">🎓</strong> {doctor.education}</p>
+                    <p aria-label={`Languages spoken: ${doctor.languages.join(', ')}`}><strong aria-hidden="true">🌐</strong> {doctor.languages.join(', ')}</p>
                 </div>
 
                 <div className="next-slot">
@@ -125,7 +129,11 @@ const DoctorCard = ({ doctor }) => (
                     <strong>{doctor.nextSlot}</strong>
                 </div>
 
-                <Link to="/appointment" className="btn btn-primary w-100 mt-3">
+                <Link
+                    to="/appointment"
+                    className="btn btn-primary w-100 mt-3"
+                    aria-label={`Book appointment with ${doctor.name}`}
+                >
                     Book Appointment
                 </Link>
             </div>
