@@ -243,6 +243,16 @@
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
+    width: 100%;
+    background: #fff;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+}
+
+.doctor-option:focus-visible {
+    outline: 2px solid #0862c8;
+    outline-offset: 2px;
 }
 
 .doctor-option:hover {
