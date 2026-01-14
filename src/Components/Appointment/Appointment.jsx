@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './Appointment.css';
 
 const timeSlots = [
@@ -40,7 +40,7 @@ const Appointment = () => {
 
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
-    const days = getDaysInMonth(year, month);
+    const days = useMemo(() => getDaysInMonth(year, month), [year, month]);
     const monthName = currentDate.toLocaleString('default', { month: 'long' });
 
     const isToday = (date) => {
