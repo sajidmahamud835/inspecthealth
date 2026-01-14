@@ -1,0 +1,3 @@
+## 2024-05-22 - Memoization in Interactive Components
+**Learning:** Even simple calculations like generating calendar days can accumulate performance costs when placed inside the render loop of highly interactive components (like `Appointment.jsx`). `React.StrictMode` makes these costs more visible by double-invoking render functions.
+**Action:** Use `useMemo` for derived data that depends on props or state, especially when that data involves object/array creation (breaking reference equality) or loops, to prevent unnecessary recalculations during re-renders triggered by unrelated state changes.
