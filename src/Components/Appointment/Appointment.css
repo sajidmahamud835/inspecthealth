@@ -243,6 +243,11 @@
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
+    width: 100%;
+    background: none;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
 }
 
 .doctor-option:hover {
