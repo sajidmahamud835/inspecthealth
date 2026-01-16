@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import './Home.css';
 import heroDoctor from '../../images/hero-doctor.png';
 import telemedicineIcon from '../../images/telemedicine.png';
 import hospitalIcon from '../../images/hospital-discount.png';
 import checkupIcon from '../../images/health-checkup.png';
 import Post from '../Post/Post';
-import Services from '../Services/Services';
+
+const Services = React.lazy(() => import('../Services/Services'));
 
 const Home = () => {
 	const [post, setPost] = useState([]);
@@ -145,7 +146,10 @@ const Home = () => {
 			</section>
 
 			{/* Services Section */}
-			<Services />
+			{/* Lazy loading Services component to improve initial page load performance */}
+			<Suspense fallback={<div className="text-center p-5" style={{ minHeight: '400px' }}><div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div></div>}>
+				<Services />
+			</Suspense>
 
 			{/* Blog Section */}
 			{post.length > 0 && (
