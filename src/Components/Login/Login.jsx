@@ -15,6 +15,7 @@ const Login = () => {
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isGoogleSubmitting, setIsGoogleSubmitting] = useState(false);
   const redirectURL = '/home';
 
   const hanldeEmail = (e) => {
@@ -40,12 +41,17 @@ const Login = () => {
   };
 
   const loginWithGoogle = () => {
+    setIsGoogleSubmitting(true);
+    setError('');
     handleGoogleLogin()
       .then((result) => {
         setUser(result.user);
         navigate(redirectURL);
       })
-      .catch((error) => setError(error.message))
+      .catch((error) => {
+        setError(error.message);
+        setIsGoogleSubmitting(false);
+      });
   }
 
   return (
@@ -64,9 +70,24 @@ const Login = () => {
           )}
 
           <div className="mb-3">
-            <button onClick={loginWithGoogle} type="button" className="btn btn-outline-dark google-btn-custom">
-              <i className="fab fa-google"></i>
-              Continue with Google
+            <button
+              onClick={loginWithGoogle}
+              type="button"
+              className="btn btn-outline-dark google-btn-custom"
+              disabled={isGoogleSubmitting}
+              aria-disabled={isGoogleSubmitting}
+            >
+              {isGoogleSubmitting ? (
+                <>
+                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Connecting...
+                </>
+              ) : (
+                <>
+                  <i className="fab fa-google"></i>
+                  Continue with Google
+                </>
+              )}
             </button>
           </div>
 
