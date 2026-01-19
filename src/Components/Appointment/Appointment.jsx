@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './Appointment.css';
 
 const timeSlots = [
@@ -40,8 +40,11 @@ const Appointment = () => {
 
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
-    const days = getDaysInMonth(year, month);
-    const monthName = currentDate.toLocaleString('default', { month: 'long' });
+    // ⚡ Bolt Optimization: Memoize days calculation to avoid regenerating 30+ Date objects
+    // on every render (e.g. when selecting a time slot).
+    const days = useMemo(() => getDaysInMonth(year, month), [year, month]);
+    // ⚡ Bolt Optimization: Memoize formatted string
+    const monthName = useMemo(() => currentDate.toLocaleString('default', { month: 'long' }), [currentDate]);
 
     const isToday = (date) => {
         const today = new Date();
