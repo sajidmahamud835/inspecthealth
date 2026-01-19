@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import './Home.css';
 import heroDoctor from '../../images/hero-doctor.png';
 import telemedicineIcon from '../../images/telemedicine.png';
 import hospitalIcon from '../../images/hospital-discount.png';
 import checkupIcon from '../../images/health-checkup.png';
 import Post from '../Post/Post';
-import Services from '../Services/Services';
+
+// Optimization: Lazy load the Services component to reduce the initial bundle size of the Home page.
+// This splits the code for the Services section into a separate chunk.
+const Services = lazy(() => import('../Services/Services'));
 
 const Home = () => {
 	const [post, setPost] = useState([]);
@@ -145,7 +148,9 @@ const Home = () => {
 			</section>
 
 			{/* Services Section */}
-			<Services />
+			<Suspense fallback={<div className="text-center py-5" style={{ minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div></div>}>
+				<Services />
+			</Suspense>
 
 			{/* Blog Section */}
 			{post.length > 0 && (
