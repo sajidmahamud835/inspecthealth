@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from './../../Hooks/useAuth';
 import './Login.css';
@@ -9,8 +9,10 @@ const Login = () => {
     handleUserLogin,
   } = useAuth();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // ⚡ Bolt Optimization: Use useRef to prevent re-renders on every keystroke
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
   const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [error, setError] = useState('');
@@ -18,17 +20,14 @@ const Login = () => {
   const [isGoogleSubmitting, setIsGoogleSubmitting] = useState(false);
   const redirectURL = '/home';
 
-  const hanldeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const hanldePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
   const handleLogin = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
     handleUserLogin(email, password)
       .then((result) => {
         setUser(result.user);
@@ -96,7 +95,7 @@ const Login = () => {
           <form onSubmit={handleLogin}>
             <div className="mb-3">
               <input
-                onChange={hanldeEmail}
+                ref={emailRef}
                 placeholder="Email address"
                 aria-label="Email address"
                 type="email"
@@ -107,7 +106,7 @@ const Login = () => {
 
             <div className="mb-3">
               <input
-                onChange={hanldePassword}
+                ref={passwordRef}
                 placeholder="Password"
                 aria-label="Password"
                 type="password"
