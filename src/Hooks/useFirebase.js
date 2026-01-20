@@ -9,14 +9,15 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { useNavigate } from 'react-router-dom';
 
 FirebaseInit();
 
 const useFirebase = () => {
   const auth = getAuth();
-  const googleProvider = new GoogleAuthProvider();
+  // ⚡ Bolt Optimization: Memoize provider to avoid recreating it on every render
+  const googleProvider = useMemo(() => new GoogleAuthProvider(), []);
   const navigate = useNavigate();
   const redirectURL = '/home';
 
@@ -24,12 +25,10 @@ const useFirebase = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-
-
-  const handleGoogleLogin = () => {
-    return signInWithPopup(auth, googleProvider)
-
-  };
+  // ⚡ Bolt Optimization: Wrap handlers in useCallback to maintain stable references
+  const handleGoogleLogin = useCallback(() => {
+    return signInWithPopup(auth, googleProvider);
+  }, [auth, googleProvider]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -41,7 +40,7 @@ const useFirebase = () => {
     return () => unsubscribe;
   }, [auth]);
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     signOut(auth)
       .then(() => {
         setUser({});
@@ -51,19 +50,18 @@ const useFirebase = () => {
         console.log(err);
       })
       .finally(() => setIsLoading(false));
-  };
+  }, [auth, navigate]);
 
-  const handleUserRegister = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
+  const handleUserRegister = useCallback((email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  }, [auth]);
 
-  };
+  const handleUserLogin = useCallback((email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  }, [auth]);
 
-  const handleUserLogin = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password)
-
-  };
-
-  return {
+  // ⚡ Bolt Optimization: Memoize return value to prevent unnecessary Context updates
+  return useMemo(() => ({
     handleGoogleLogin,
     handleLogout,
     handleUserRegister,
@@ -71,7 +69,7 @@ const useFirebase = () => {
     user,
     error,
     isLoading,
-  };
+  }), [handleGoogleLogin, handleLogout, handleUserRegister, handleUserLogin, user, error, isLoading]);
 };
 
 export default useFirebase;
