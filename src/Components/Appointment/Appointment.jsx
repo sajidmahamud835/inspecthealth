@@ -159,6 +159,9 @@ const Appointment = () => {
                                         className={`calendar-day ${!date ? 'empty' : ''} ${isToday(date) ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${selectedDate?.toDateString() === date?.toDateString() ? 'selected' : ''}`}
                                         onClick={() => handleDateSelect(date)}
                                         disabled={!date || isPast(date)}
+                                        aria-label={date ? date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : 'Empty slot'}
+                                        aria-selected={selectedDate?.toDateString() === date?.toDateString()}
+                                        aria-current={isToday(date) ? 'date' : undefined}
                                     >
                                         {date?.getDate()}
                                     </button>
@@ -176,6 +179,8 @@ const Appointment = () => {
                                             key={time}
                                             className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
                                             onClick={() => handleTimeSelect(time)}
+                                            aria-label={`Select ${time}`}
+                                            aria-pressed={selectedTime === time}
                                         >
                                             {time}
                                         </button>
