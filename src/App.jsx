@@ -23,24 +23,26 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <Header></Header>
-          <Suspense fallback={<div className="text-center p-5"><div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div></div>}>
-            <Routes>
-              <Route path="/" element={<><Home /><Footer /></>} />
-              <Route path="/home" element={<><Home /><Footer /></>} />
-              <Route path="/about" element={<><About /><Footer /></>} />
-              <Route path="/services" element={<><Services /><Footer /></>} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/query" element={<><Contact /><Footer /></>} />
-              <Route path="/appointment" element={<><Appointment /><Footer /></>} />
-              <Route path="/doctors" element={<><Doctors /><Footer /></>} />
-              <Route path="/post" element={<><SinglePost /><Footer /></>} />
-              {/* <PrivateRoute path="/post">
-                <SinglePost></SinglePost>
-              </PrivateRoute> */}
-              <Route path="*" element={<><NotFound /><Footer /></>} />
-            </Routes>
-          </Suspense>
+          <main id="main-content">
+            <Suspense fallback={<div className="text-center p-5"><div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div></div>}>
+              <Routes>
+                <Route path="/" element={<><Home /><Footer /></>} />
+                <Route path="/home" element={<><Home /><Footer /></>} />
+                <Route path="/about" element={<><About /><Footer /></>} />
+                <Route path="/services" element={<><Services /><Footer /></>} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/query" element={<><Contact /><Footer /></>} />
+                <Route path="/appointment" element={<><Appointment /><Footer /></>} />
+                <Route path="/doctors" element={<><Doctors /><Footer /></>} />
+                <Route path="/post" element={<><SinglePost /><Footer /></>} />
+                {/* <PrivateRoute path="/post">
+                  <SinglePost></SinglePost>
+                </PrivateRoute> */}
+                <Route path="*" element={<><NotFound /><Footer /></>} />
+              </Routes>
+            </Suspense>
+          </main>
         </AuthProvider>
       </BrowserRouter>
     </div>
