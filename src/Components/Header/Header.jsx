@@ -9,6 +9,7 @@ const Header = () => {
 
     return (
         <header className="main-header">
+            <a href="#main-content" className="skip-link">Skip to content</a>
             <div className="container">
                 <nav className="navbar navbar-expand-lg">
                     <Link className="navbar-brand" to="/">
