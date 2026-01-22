@@ -7,3 +7,7 @@
 ## 2024-05-23 - Accessible Card Selection
 **Learning:** Refactoring legacy `div` interactive elements to semantic `button` elements requires explicitly resetting CSS properties (background, width, text-align, border, font-family, color) to override browser defaults.
 **Action:** Selectable UI cards should be implemented as `button` elements with `type='button'` and use the `aria-pressed` attribute to indicate selection state.
+
+## 2024-05-24 - Skip Links
+**Learning:** "Skip to content" links are essential for keyboard users but require a target element (like `<main id="main-content">`) to be effective. Older browsers or specific focus behaviors may require `tabIndex="-1"` on the target container to ensure focus actually moves.
+**Action:** Always pair a skip link with a wrapper container that has a matching ID and `tabIndex="-1"`.
