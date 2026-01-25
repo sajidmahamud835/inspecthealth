@@ -94,7 +94,8 @@ const DoctorCard = ({ doctor }) => (
     <div className="col-lg-4 col-md-6 mb-4">
         <div className="doctor-card">
             <div className="doctor-image-wrapper">
-                <img src={doctor.image} alt={doctor.name} className="doctor-image" />
+                {/* ⚡ Bolt Optimization: Lazy load images and set explicit dimensions to improve performance */}
+                <img src={doctor.image} alt={doctor.name} className="doctor-image" loading="lazy" width="120" height="120" />
                 <span className={`availability-badge ${doctor.available ? 'available' : 'unavailable'}`}>
                     {doctor.available ? '● Available' : '○ Unavailable'}
                 </span>
