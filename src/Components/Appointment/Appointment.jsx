@@ -159,6 +159,9 @@ const Appointment = () => {
                                         className={`calendar-day ${!date ? 'empty' : ''} ${isToday(date) ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${selectedDate?.toDateString() === date?.toDateString() ? 'selected' : ''}`}
                                         onClick={() => handleDateSelect(date)}
                                         disabled={!date || isPast(date)}
+                                        aria-label={date ? date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : ''}
+                                        aria-current={isToday(date) ? 'date' : undefined}
+                                        aria-pressed={selectedDate?.toDateString() === date?.toDateString()}
                                     >
                                         {date?.getDate()}
                                     </button>
@@ -176,6 +179,8 @@ const Appointment = () => {
                                             key={time}
                                             className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
                                             onClick={() => handleTimeSelect(time)}
+                                            aria-label={`Select ${time}`}
+                                            aria-pressed={selectedTime === time}
                                         >
                                             {time}
                                         </button>
@@ -199,7 +204,7 @@ const Appointment = () => {
                                             onClick={() => handleDoctorSelect(doctor)}
                                             aria-pressed={selectedDoctor?.id === doctor.id}
                                         >
-                                            <span className="doctor-avatar">{doctor.avatar}</span>
+                                            <span className="doctor-avatar" role="img" aria-label="Doctor avatar">{doctor.avatar}</span>
                                             <div className="doctor-info">
                                                 <strong>{doctor.name}</strong>
                                                 <span>{doctor.specialty}</span>
