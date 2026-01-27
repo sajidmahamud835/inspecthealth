@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import SingleService from '../SingleService/SingleService';
 import './Services.css';
+// Optimization: Import data directly to avoid network request and re-renders
+import servicesData from '../../fakedata/FakeDataService.json';
 
 const Services = () => {
-
-    const [service, setPost] = useState([]);
-
-    useEffect(() => {
-        console.log('product api called');
-        fetch('/FakeDataService.JSON')
-            .then(res => res.json())
-            .then(data => {
-                setPost(data);
-                console.log('products received');
-            })
-    }, [])
     return (
         <section className="we-offer-area text-center bg-gray">
             <div className="container">
@@ -29,7 +19,7 @@ const Services = () => {
                 <div className="row our-offer-items less-carousel">
 
                     {
-                        service.map((service, index) => <SingleService
+                        servicesData.map((service, index) => <SingleService
                             key={index}
                             service={service}
                         />)
