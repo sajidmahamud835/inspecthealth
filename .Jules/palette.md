@@ -7,3 +7,7 @@
 ## 2024-05-23 - Accessible Card Selection
 **Learning:** Refactoring legacy `div` interactive elements to semantic `button` elements requires explicitly resetting CSS properties (background, width, text-align, border, font-family, color) to override browser defaults.
 **Action:** Selectable UI cards should be implemented as `button` elements with `type='button'` and use the `aria-pressed` attribute to indicate selection state.
+
+## 2024-05-24 - Calendar Accessibility
+**Learning:** Visual context (like a "May 2024" header) is not enough for screen reader users navigating a grid of numbers. They need the full date announced for each button.
+**Action:** Use `aria-label` to provide the full date string (e.g., "Monday, May 15, 2024") on calendar day buttons, and `aria-hidden="true"` on empty spacer slots.
