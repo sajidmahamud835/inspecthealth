@@ -153,16 +153,27 @@ const Appointment = () => {
                                 ))}
                             </div>
                             <div className="calendar-grid">
-                                {days.map((date, index) => (
-                                    <button
-                                        key={index}
-                                        className={`calendar-day ${!date ? 'empty' : ''} ${isToday(date) ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${selectedDate?.toDateString() === date?.toDateString() ? 'selected' : ''}`}
-                                        onClick={() => handleDateSelect(date)}
-                                        disabled={!date || isPast(date)}
-                                    >
-                                        {date?.getDate()}
-                                    </button>
-                                ))}
+                                {days.map((date, index) => {
+                                    const isDateToday = isToday(date);
+                                    const isSelected = selectedDate?.toDateString() === date?.toDateString();
+                                    const dateLabel = date ? date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '';
+
+                                    return (
+                                        <button
+                                            key={index}
+                                            className={`calendar-day ${!date ? 'empty' : ''} ${isDateToday ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${isSelected ? 'selected' : ''}`}
+                                            onClick={() => handleDateSelect(date)}
+                                            disabled={!date || isPast(date)}
+                                            aria-label={date ? dateLabel : undefined}
+                                            aria-hidden={!date}
+                                            aria-current={isDateToday ? 'date' : undefined}
+                                            aria-pressed={isSelected}
+                                            tabIndex={!date ? -1 : undefined}
+                                        >
+                                            {date?.getDate()}
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
 
