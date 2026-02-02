@@ -6,6 +6,24 @@
     z-index: 1000;
 }
 
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: #0862C8; /* var(--primary) but using hex to match file style */
+    color: white;
+    padding: 0.5rem 1rem;
+    z-index: 2000;
+    transition: top 0.2s;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 .main-header .navbar {
     padding: 1rem 0;
 }

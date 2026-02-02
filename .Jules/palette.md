@@ -7,3 +7,7 @@
 ## 2024-05-23 - Accessible Card Selection
 **Learning:** Refactoring legacy `div` interactive elements to semantic `button` elements requires explicitly resetting CSS properties (background, width, text-align, border, font-family, color) to override browser defaults.
 **Action:** Selectable UI cards should be implemented as `button` elements with `type='button'` and use the `aria-pressed` attribute to indicate selection state.
+
+## 2024-05-24 - Semantic Landmarks
+**Learning:** This React application relied entirely on `div` wrappers, missing critical semantic landmarks like `<main>` which are essential for accessibility features like "Skip to content".
+**Action:** When implementing navigation aids, always verify and potentially retroactively add semantic wrappers (`<main>`) to the root layout if they are missing.
