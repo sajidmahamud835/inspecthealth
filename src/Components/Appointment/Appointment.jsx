@@ -46,15 +46,22 @@ const Appointment = () => {
     // ⚡ Bolt Optimization: Memoize formatted string
     const monthName = useMemo(() => currentDate.toLocaleString('default', { month: 'long' }), [currentDate]);
 
+    // ⚡ Bolt Optimization: Get today's date components once per render to avoid
+    // creating Date objects and string comparisons in the loop.
+    const now = new Date();
+    const todayDay = now.getDate();
+    const todayMonth = now.getMonth();
+    const todayYear = now.getFullYear();
+
+    // Create a midnight date for 'isPast' comparison
+    const todayMidnight = new Date(todayYear, todayMonth, todayDay);
+
     const isToday = (date) => {
-        const today = new Date();
-        return date && date.toDateString() === today.toDateString();
+        return date && date.getDate() === todayDay && date.getMonth() === todayMonth && date.getFullYear() === todayYear;
     };
 
     const isPast = (date) => {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return date && date < today;
+        return date && date < todayMidnight;
     };
 
     const handleDateSelect = (date) => {
