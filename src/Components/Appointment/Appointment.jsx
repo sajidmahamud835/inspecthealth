@@ -57,6 +57,11 @@ const Appointment = () => {
         return date && date < today;
     };
 
+    const formatDateForScreenReader = (date) => {
+        if (!date) return '';
+        return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    };
+
     const handleDateSelect = (date) => {
         if (date && !isPast(date)) {
             setSelectedDate(date);
@@ -159,6 +164,11 @@ const Appointment = () => {
                                         className={`calendar-day ${!date ? 'empty' : ''} ${isToday(date) ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${selectedDate?.toDateString() === date?.toDateString() ? 'selected' : ''}`}
                                         onClick={() => handleDateSelect(date)}
                                         disabled={!date || isPast(date)}
+                                        aria-label={formatDateForScreenReader(date)}
+                                        aria-current={isToday(date) ? 'date' : undefined}
+                                        aria-pressed={selectedDate?.toDateString() === date?.toDateString()}
+                                        aria-hidden={!date}
+                                        tabIndex={!date ? -1 : undefined}
                                     >
                                         {date?.getDate()}
                                     </button>
