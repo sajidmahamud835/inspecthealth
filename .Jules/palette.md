@@ -7,3 +7,7 @@
 ## 2024-05-23 - Accessible Card Selection
 **Learning:** Refactoring legacy `div` interactive elements to semantic `button` elements requires explicitly resetting CSS properties (background, width, text-align, border, font-family, color) to override browser defaults.
 **Action:** Selectable UI cards should be implemented as `button` elements with `type='button'` and use the `aria-pressed` attribute to indicate selection state.
+
+## 2024-05-24 - Form Feedback & Simulation
+**Learning:** Static "fake" forms in prototypes or demos are frustrating and misleading.
+**Action:** Implement simulated async submission with `setTimeout` to provide immediate, realistic feedback (loading states, success alerts) even without a backend. This validates the UX flow before integration.
