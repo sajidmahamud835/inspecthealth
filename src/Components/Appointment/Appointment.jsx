@@ -46,15 +46,22 @@ const Appointment = () => {
     // ⚡ Bolt Optimization: Memoize formatted string
     const monthName = useMemo(() => currentDate.toLocaleString('default', { month: 'long' }), [currentDate]);
 
+    // ⚡ Bolt Optimization: Pre-calculate today's midnight timestamp to avoid
+    // creating new Date objects in the render loop (isToday/isPast).
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayTimestamp = today.getTime();
+
+    // ⚡ Bolt Optimization: Pre-calculate selected date timestamp
+    const selectedDateTimestamp = selectedDate?.getTime();
+
     const isToday = (date) => {
-        const today = new Date();
-        return date && date.toDateString() === today.toDateString();
+        // days are normalized to midnight by getDaysInMonth
+        return date && date.getTime() === todayTimestamp;
     };
 
     const isPast = (date) => {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return date && date < today;
+        return date && date.getTime() < todayTimestamp;
     };
 
     const handleDateSelect = (date) => {
@@ -156,7 +163,7 @@ const Appointment = () => {
                                 {days.map((date, index) => (
                                     <button
                                         key={index}
-                                        className={`calendar-day ${!date ? 'empty' : ''} ${isToday(date) ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${selectedDate?.toDateString() === date?.toDateString() ? 'selected' : ''}`}
+                                        className={`calendar-day ${!date ? 'empty' : ''} ${isToday(date) ? 'today' : ''} ${isPast(date) ? 'past' : ''} ${selectedDateTimestamp === date?.getTime() ? 'selected' : ''}`}
                                         onClick={() => handleDateSelect(date)}
                                         disabled={!date || isPast(date)}
                                     >
