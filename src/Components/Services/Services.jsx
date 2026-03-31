@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SingleService from '../SingleService/SingleService';
 import './Services.css';
 
-const Services = () => {
+const Services = React.memo(() => {
 
     const [service, setPost] = useState([]);
 
@@ -39,6 +39,6 @@ const Services = () => {
             </div>
         </section>
     );
-};
+});
 
 export default Services;

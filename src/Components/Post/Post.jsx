@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Post.css';
 
-const Post = (props) => {
+const Post = React.memo((props) => {
 	const { name, details, date, visitor, img } = props.post;
 	return (
 		<div className="col-md-4 mb-5">
@@ -19,6 +19,6 @@ const Post = (props) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default Post;
